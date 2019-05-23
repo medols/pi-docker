@@ -8,17 +8,19 @@ ADD https://github.com/multiarch/qemu-user-static/releases/download/v4.0.0/qemu-
 
 ENV SSL_CERT_FILE=/tmp/cacert.pem 
 
-RUN [ "cross-build-start" ]
+#RUN [ "cross-build-start" ]
 
 #RUN /tmp/setup.sh
 
 #RUN locale-gen en_US.UTF-8
 
-RUN apt-get update
+#RUN apt-get update
 
-RUN apt-get -y upgrade
+#RUN apt-get -y upgrade
 
-#RUN [ "/usr/bin/qemu-aarch64-static", "apt-get", "update" ]
+RUN chmod 777 /usr/bin/qemu-aarch64-static && ls -al /usr/bin/qemu-aarch64-static
+
+RUN [ "/usr/bin/qemu-aarch64-static", "apt-get", "update" ]
 
 #RUN [ "/usr/bin/qemu-aarch64-static", "apt-get", "-y", "upgrade" ]
 
@@ -30,6 +32,6 @@ RUN apt-get -y upgrade
 
 #RUN LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_ALL=en_US.UTF-8 rake
 
-RUN [ "cross-build-end" ]
+#RUN [ "cross-build-end" ]
 
 CMD bash
