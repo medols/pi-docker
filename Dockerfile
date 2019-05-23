@@ -18,13 +18,13 @@ FROM arm64v8/ubuntu:latest
 
 #RUN apt-get -y upgrade
 
-RUN apt-get update
+#RUN apt-get update
 
 #RUN chmod 777 /usr/bin/qemu-aarch64-static && ls -al /usr/bin/qemu-aarch64-static
 
-#RUN [ "/usr/bin/qemu-aarch64-static", "apt-get", "update" ]
+RUN [ "/usr/bin/qemu-aarch64-static", "apt-get", "update" ]
 
-#RUN [ "/usr/bin/qemu-aarch64-static", "apt-get", "-y", "upgrade" ]
+RUN [ "/usr/bin/qemu-aarch64-static", "apt-get", "-y", "upgrade" ]
 
 #RUN apt-get update && apt-get -y upgrade &&  apt-get -y install make clang-3.6 g++ ruby-dev libncurses-dev zlib1g-dev libssl-dev libedit-dev libncursesw5-dev git libatomic1 libedit2 libssl1.0-dev
 
