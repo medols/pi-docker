@@ -1,12 +1,12 @@
 FROM arm64v8/ubuntu:latest
 
-ADD http://curl.haxx.se/ca/cacert.pem /tmp
+#ADD http://curl.haxx.se/ca/cacert.pem /tmp
 
-ADD https://github.com/multiarch/qemu-user-static/releases/download/v4.0.0/qemu-aarch64-static /usr/bin
+#ADD https://github.com/multiarch/qemu-user-static/releases/download/v4.0.0/qemu-aarch64-static /usr/bin
 
 #ADD setup.sh /tmp/setup.sh
 
-ENV SSL_CERT_FILE=/tmp/cacert.pem 
+#ENV SSL_CERT_FILE=/tmp/cacert.pem 
 
 #RUN [ "cross-build-start" ]
 
@@ -18,9 +18,11 @@ ENV SSL_CERT_FILE=/tmp/cacert.pem
 
 #RUN apt-get -y upgrade
 
-RUN chmod 777 /usr/bin/qemu-aarch64-static && ls -al /usr/bin/qemu-aarch64-static
+RUN apt-get update
 
-RUN [ "/usr/bin/qemu-aarch64-static", "apt-get", "update" ]
+#RUN chmod 777 /usr/bin/qemu-aarch64-static && ls -al /usr/bin/qemu-aarch64-static
+
+#RUN [ "/usr/bin/qemu-aarch64-static", "apt-get", "update" ]
 
 #RUN [ "/usr/bin/qemu-aarch64-static", "apt-get", "-y", "upgrade" ]
 
