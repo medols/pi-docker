@@ -10,7 +10,7 @@ ADD https://github.com/multiarch/qemu-user-static/releases/download/v4.0.0/qemu-
 
 #RUN /tmp/setup.sh
 
-RUN locale-gen en_US.UTF-8
+#RUN locale-gen en_US.UTF-8
 
 RUN apt-get update
 
