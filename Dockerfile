@@ -8,6 +8,7 @@ RUN curl -O -L https://github.com/multiarch/qemu-user-static/releases/download/v
 FROM aarch64/ubuntu:latest
 # Copy across the qemu binary that was downloaded in the previous build step
 COPY --from=builder /opt/pi-docker/qemu-aarch64-static /usr/bin
+RUN apk add nmap
 RUN ["/usr/bin/qemu-aarch64-static", "apt-get", "update"] 
 RUN ["/usr/bin/qemu-aarch64-static", "apt-get", "-y", "upgrade"] 
 #COPY --from=builder /go/src/github.com/medols/pi-docker/hue-im-home_arm /hue-im-home
