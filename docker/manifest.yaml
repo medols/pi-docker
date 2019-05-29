@@ -1,0 +1,7 @@
+image: medols/pi-docker:latest
+manifests:
+  -
+    image: medols/pi-docker:aarch64-latest
+    platform:
+      architecture: aarch64
+      os: linux
