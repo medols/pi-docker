@@ -8,6 +8,7 @@ RUN curl -O -L https://github.com/multiarch/qemu-user-static/releases/download/v
 FROM arm64v8/alpine:latest
 # Copy across the qemu binary that was downloaded in the previous build step
 COPY --from=builder /opt/pi-docker/qemu-aarch64-static /usr/bin
+RUN chmod -ed 0777 /usr/bin/qemu-aarch64-static
 RUN apk add nmap
 ENTRYPOINT ["/bin/bash"]
 
