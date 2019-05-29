@@ -1,9 +1,9 @@
-FROM ubuntu:latest AS builder
+FROM golang:1.12.0 AS builder
 WORKDIR /opt/pi-docker
 COPY ./ .
 #RUN make build-go-arm
 # While we're here in amd64, download the qemu-arm-static binary for the arm image in the next build step
-RUN wget https://github.com/multiarch/qemu-user-static/releases/download/v4.0.0/qemu-aarch64-static 
+RUN curl -O -L https://github.com/multiarch/qemu-user-static/releases/download/v4.0.0/qemu-aarch64-static 
 
 FROM aarch64/ubuntu:latest
 # Copy across the qemu binary that was downloaded in the previous build step
